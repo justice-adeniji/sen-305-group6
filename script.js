@@ -1,3 +1,4 @@
+const { Select } = require("react-day-picker");
 
 const form = document.getElementById("biodataForm");
 const message = document.getElementById("message");
@@ -19,12 +20,14 @@ form.addEventListener("submit", function(event) {
 
     const gender =
         document.getElementById("gender").value;
+    const level =
+        document.getElementById("level").value;
 
     const department =
         document.getElementById("department").value.trim();
 
     if (!fullname || !matric || !email ||
-        !dob || !gender || !department) {
+        !dob || !gender || !level || !department) {
 
         message.textContent = "Please fill in every field.";
         message.style.color = "red";
@@ -43,5 +46,5 @@ form.addEventListener("submit", function(event) {
 
     message.textContent =
         "Biodata validated successfully!";
-    message.style.color = "green";
+    message.style.color = "green";    
 });

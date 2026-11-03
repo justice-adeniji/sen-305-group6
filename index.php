@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/db.php';
 
-// Authentication check: Must be logged in to access the biodata form
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;

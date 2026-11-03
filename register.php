@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/db.php';
 
-// If user is already logged in, redirect to index.php
 if (isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit;
@@ -63,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <label for="username">Username / Matric No:</label>
-        <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>" required placeholder="e.g. VUG/SEN/24/11401">
+        <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>" required placeholder="e.g. VUG/SEN/24/12345">
 
         <label for="email">Email Address:</label>
         <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required placeholder="student@example.com">

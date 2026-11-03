@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/db.php';
 
-// Authentication check
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
@@ -9,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $currentUser = $_SESSION['username'] ?? 'Student';
 
-// Fetch all biodata records
 try {
     $stmt = $pdo->query("SELECT * FROM `biodata` ORDER BY `id` DESC");
     $records = $stmt->fetchAll();

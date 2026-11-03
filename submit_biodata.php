@@ -2,7 +2,6 @@
 header('Content-Type: application/json');
 require_once __DIR__ . '/db.php';
 
-// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     http_response_code(401);
     echo json_encode([
@@ -21,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Support both JSON payload and standard form-encoded data
 $raw = file_get_contents('php://input');
 $data = json_decode($raw, true);
 
@@ -37,7 +35,6 @@ $level      = trim($data['level'] ?? '');
 $gender     = trim($data['gender'] ?? '');
 $department = trim($data['department'] ?? '');
 
-// Validation
 if (!$fullname || !$matric_no || !$email || !$dob || !$level || !$gender || !$department) {
     http_response_code(400);
     echo json_encode([

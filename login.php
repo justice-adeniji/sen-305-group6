@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/db.php';
 
-// If user is already logged in, redirect to index.php
 if (isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit;
@@ -28,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
-            // Password is correct! Set session
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];

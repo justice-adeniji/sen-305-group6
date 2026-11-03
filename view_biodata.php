@@ -75,7 +75,7 @@ try {
                                 <td><strong><?php echo htmlspecialchars($row['fullname']); ?></strong></td>
                                 <td><code><?php echo htmlspecialchars($row['matric_no']); ?></code></td>
                                 <td><?php echo htmlspecialchars($row['email']); ?></td>
-                                <td><?php echo htmlspecialchars($row['dob']); ?></td>
+                                <td><?php echo htmlspecialchars(date('jS F, Y',strtotime($row['dob']))); ?></td>
                                 <td><?php echo htmlspecialchars($row['level']); ?></td>
                                 <td><?php echo htmlspecialchars($row['gender']); ?></td>
                                 <td><?php echo htmlspecialchars($row['department']); ?></td>
